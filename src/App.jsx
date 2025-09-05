@@ -1,9 +1,11 @@
+import Layout from './components/Layout.jsx'
+
 function App() {
   return (
-    <div className="app-placeholder">
-      <h1>TaskFlow</h1>
-      <p>Project initialized.</p>
-    </div>
+    <Layout>
+      <h1>Welcome</h1>
+      <p>Select a board to get started.</p>
+    </Layout>
   )
 }
 
