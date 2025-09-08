@@ -1,10 +1,23 @@
+import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout.jsx'
+import Boards from './pages/Boards.jsx'
+import Teams from './pages/Teams.jsx'
+import Notifications from './pages/Notifications.jsx'
+import Login from './pages/Login.jsx'
+import Signup from './pages/Signup.jsx'
+import NotFound from './pages/NotFound.jsx'
 
 function App() {
   return (
     <Layout>
-      <h1>Welcome</h1>
-      <p>Select a board to get started.</p>
+      <Routes>
+        <Route path="/" element={<Boards />} />
+        <Route path="/teams" element={<Teams />} />
+        <Route path="/notifications" element={<Notifications />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </Layout>
   )
 }

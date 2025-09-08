@@ -59,3 +59,8 @@ body {
 .layout-content {
   padding: 24px;
 }
+
+.sidebar-item.active {
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 1;
+}
