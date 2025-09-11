@@ -64,3 +64,34 @@ body {
   background: rgba(255, 255, 255, 0.15);
   opacity: 1;
 }
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.board-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  border-top: 4px solid #ccc;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.board-card h3 {
+  margin: 0 0 6px;
+}
+
+.board-description {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin: 0 0 12px;
+}
+
+.board-task-count {
+  font-size: 0.8rem;
+  color: #374151;
+  font-weight: 600;
+}
