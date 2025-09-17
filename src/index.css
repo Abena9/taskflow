@@ -110,3 +110,22 @@ body {
   outline: none;
   border-color: #4c6ef5;
 }
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.toolbar .search-bar {
+  margin-top: 0;
+}
+
+.filter-bar select {
+  padding: 8px 12px;
+  border: 1px solid #dcdfe4;
+  border-radius: 8px;
+  background: #fff;
+}
