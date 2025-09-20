@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout.jsx'
 import Boards from './pages/Boards.jsx'
+import BoardDetail from './pages/BoardDetail.jsx'
 import Teams from './pages/Teams.jsx'
 import Notifications from './pages/Notifications.jsx'
 import Login from './pages/Login.jsx'
@@ -12,6 +13,7 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Boards />} />
+        <Route path="/boards/:id" element={<BoardDetail />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/login" element={<Login />} />

@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { boards, boardStatuses } from '../data/boards.js'
+import { Link } from 'react-router-dom'
 import BoardCard from '../components/BoardCard.jsx'
 import SearchBar from '../components/SearchBar.jsx'
 import FilterBar from '../components/FilterBar.jsx'
