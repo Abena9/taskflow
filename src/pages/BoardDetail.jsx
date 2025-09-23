@@ -1,10 +1,13 @@
 import { useParams, Link } from 'react-router-dom'
 import { boards } from '../data/boards.js'
-import { columns, tasks } from '../data/tasks.js'
+import { columns } from '../data/tasks.js'
+import { useTasks } from '../context/TaskContext.jsx'
+import TaskForm from '../components/TaskForm.jsx'
 
 function BoardDetail() {
   const { id } = useParams()
   const board = boards.find((b) => String(b.id) === id)
+  const { tasks, addTask } = useTasks()
 
   if (!board) {
     return <p>Board not found. <Link to="/">Back to boards</Link></p>
@@ -16,6 +19,7 @@ function BoardDetail() {
     <div>
       <Link to="/">&larr; Back to boards</Link>
       <h1>{board.name}</h1>
+      <TaskForm onAdd={addTask} boardId={board.id} />
       <div className="board-columns">
         {columns.map((col) => (
           <div key={col} className="board-column">
