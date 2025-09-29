@@ -206,3 +206,9 @@ a.board-card {
   font-size: 0.75rem;
   padding: 2px 6px;
 }
+
+.task-card-title {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}

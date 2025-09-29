@@ -38,7 +38,7 @@ function BoardDetail() {
               .filter((t) => t.column === col)
               .map((t) => (
                 <div key={t.id} className="task-card">
-                  <div>{t.title}</div>
+                  <Link to={'/tasks/' + t.id} className="task-card-title">{t.title}</Link>
                   <div className="task-card-actions">
                     {col !== columns[0] && (
                       <button onClick={() => moveTask(t.id, prevColumn(col))}>&larr;</button>
