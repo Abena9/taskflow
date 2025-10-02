@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useTasks } from '../context/TaskContext.jsx'
 import { boards } from '../data/boards.js'
+import CommentList from '../components/CommentList.jsx'
 
 function TaskDetail() {
   const { id } = useParams()
@@ -18,6 +19,7 @@ function TaskDetail() {
       <Link to={'/boards/' + task.boardId}>&larr; Back to {board?.name}</Link>
       <h1>{task.title}</h1>
       <p>Status: {task.column} &middot; Priority: {task.priority}</p>
+      <CommentList taskId={task.id} />
     </div>
   )
 }
