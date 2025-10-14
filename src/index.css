@@ -329,3 +329,39 @@ a.board-card {
   flex-direction: column;
   gap: 4px;
 }
+
+.team-members li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-add-member {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.team-add-member input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #dcdfe4;
+  border-radius: 6px;
+}
+
+.team-add-member button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: #4c6ef5;
+  color: #fff;
+  cursor: pointer;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #c0392b;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
