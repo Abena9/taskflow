@@ -3,6 +3,7 @@ import { boards } from '../data/boards.js'
 import { columns } from '../data/tasks.js'
 import { useTasks } from '../context/TaskContext.jsx'
 import TaskForm from '../components/TaskForm.jsx'
+import TaskCardBadge from '../components/TaskCardBadge.jsx'
 
 function BoardDetail() {
   const { id } = useParams()
@@ -38,7 +39,10 @@ function BoardDetail() {
               .filter((t) => t.column === col)
               .map((t) => (
                 <div key={t.id} className="task-card">
-                  <Link to={'/tasks/' + t.id} className="task-card-title">{t.title}</Link>
+                  <div className="task-card-row">
+                    <Link to={'/tasks/' + t.id} className="task-card-title">{t.title}</Link>
+                    <TaskCardBadge assignee={t.assignee} />
+                  </div>
                   <div className="task-card-actions">
                     {col !== columns[0] && (
                       <button onClick={() => moveTask(t.id, prevColumn(col))}>&larr;</button>
