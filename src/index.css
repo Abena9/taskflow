@@ -438,3 +438,29 @@ a.board-card {
   color: #1a1a1a;
   font-weight: 500;
 }
+
+.label-badge {
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.label-picker {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+
+.label-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+.label-toggle.active {
+  opacity: 1;
+}

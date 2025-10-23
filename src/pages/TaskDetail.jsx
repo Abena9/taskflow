@@ -3,10 +3,11 @@ import { useTasks } from '../context/TaskContext.jsx'
 import { useTeams } from '../context/TeamContext.jsx'
 import { boards } from '../data/boards.js'
 import CommentList from '../components/CommentList.jsx'
+import LabelBadge from '../components/LabelBadge.jsx'
 
 function TaskDetail() {
   const { id } = useParams()
-  const { tasks, assignTask } = useTasks()
+  const { tasks, assignTask, toggleLabel, availableLabels } = useTasks()
   const { teams } = useTeams()
   const task = tasks.find((t) => String(t.id) === id)
 
@@ -22,6 +23,19 @@ function TaskDetail() {
       <Link to={'/boards/' + task.boardId}>&larr; Back to {board?.name}</Link>
       <h1>{task.title}</h1>
       <p>Status: {task.column} &middot; Priority: {task.priority}</p>
+
+      <div className="label-picker">
+        {availableLabels.map((label) => (
+          <button
+            key={label}
+            className={'label-toggle' + (task.labels.includes(label) ? ' active' : '')}
+            onClick={() => toggleLabel(task.id, label)}
+          >
+            <LabelBadge label={label} />
+          </button>
+        ))}
+      </div>
+
       <label className="assignee-select">
         Assignee
         <select value={task.assignee || ''} onChange={(e) => assignTask(task.id, e.target.value || null)}>
