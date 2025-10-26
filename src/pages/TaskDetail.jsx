@@ -7,7 +7,7 @@ import LabelBadge from '../components/LabelBadge.jsx'
 
 function TaskDetail() {
   const { id } = useParams()
-  const { tasks, assignTask, toggleLabel, availableLabels } = useTasks()
+  const { tasks, assignTask, toggleLabel, availableLabels, setDueDate } = useTasks()
   const { teams } = useTeams()
   const task = tasks.find((t) => String(t.id) === id)
 
@@ -45,6 +45,16 @@ function TaskDetail() {
           ))}
         </select>
       </label>
+
+      <label className="assignee-select">
+        Due date
+        <input
+          type="date"
+          value={task.dueDate || ''}
+          onChange={(e) => setDueDate(task.id, e.target.value || null)}
+        />
+      </label>
+
       <CommentList taskId={task.id} />
     </div>
   )

@@ -43,6 +43,7 @@ function BoardDetail() {
                     <Link to={'/tasks/' + t.id} className="task-card-title">{t.title}</Link>
                     <TaskCardBadge assignee={t.assignee} />
                   </div>
+                  {t.dueDate && <div className="task-due-date">Due {t.dueDate}</div>}
                   <div className="task-card-actions">
                     {col !== columns[0] && (
                       <button onClick={() => moveTask(t.id, prevColumn(col))}>&larr;</button>

@@ -5,10 +5,15 @@ const TaskContext = createContext(null)
 const availableLabels = ['Bug', 'Feature', 'Design', 'Urgent']
 
 export function TaskProvider({ children }) {
-  const [tasks, setTasks] = useState(initialTasks.map((t) => ({ ...t, assignee: null, labels: [] })))
+  const [tasks, setTasks] = useState(
+    initialTasks.map((t) => ({ ...t, assignee: null, labels: [], dueDate: null }))
+  )
 
   function addTask(task) {
-    setTasks((prev) => [...prev, { ...task, id: Date.now(), assignee: null, labels: [] }])
+    setTasks((prev) => [
+      ...prev,
+      { ...task, id: Date.now(), assignee: null, labels: [], dueDate: task.dueDate || null },
+    ])
   }
 
   function moveTask(id, column) {
@@ -33,9 +38,13 @@ export function TaskProvider({ children }) {
     )
   }
 
+  function setDueDate(id, dueDate) {
+    setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, dueDate } : t)))
+  }
+
   return (
     <TaskContext.Provider
-      value={{ tasks, addTask, moveTask, removeTask, assignTask, toggleLabel, availableLabels }}
+      value={{ tasks, addTask, moveTask, removeTask, assignTask, toggleLabel, availableLabels, setDueDate }}
     >
       {children}
     </TaskContext.Provider>

@@ -464,3 +464,9 @@ a.board-card {
 .label-toggle.active {
   opacity: 1;
 }
+
+.task-due-date {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
