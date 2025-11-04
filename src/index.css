@@ -498,3 +498,20 @@ a.board-card {
   border: 1px solid #dcdfe4;
   border-radius: 8px;
 }
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field-error {
+  color: #c0392b;
+  font-size: 0.75rem;
+}
+
+.task-form select {
+  padding: 8px 10px;
+  border: 1px solid #dcdfe4;
+  border-radius: 8px;
+}
