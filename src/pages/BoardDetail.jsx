@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { boards } from '../data/boards.js'
+import { useBoards } from '../context/BoardContext.jsx'
 import { columns } from '../data/tasks.js'
 import { useTasks } from '../context/TaskContext.jsx'
 import TaskForm from '../components/TaskForm.jsx'
@@ -11,6 +11,7 @@ const priorityRank = { High: 0, Medium: 1, Low: 2 }
 
 function BoardDetail() {
   const { id } = useParams()
+  const { boards } = useBoards()
   const board = boards.find((b) => String(b.id) === id)
   const { tasks, addTask, moveTask } = useTasks()
   const [sort, setSort] = useState('')
