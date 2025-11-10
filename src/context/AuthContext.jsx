@@ -2,12 +2,16 @@ import { createContext, useContext, useState } from 'react'
 
 const AuthContext = createContext(null)
 
+function roleFor(email) {
+  return email.endsWith('@taskflow-admin.com') ? 'admin' : 'member'
+}
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
 
   function login(email, password) {
     if (email && password) {
-      setUser({ email, name: email.split('@')[0] })
+      setUser({ email, name: email.split('@')[0], role: roleFor(email) })
       return true
     }
     return false
@@ -15,7 +19,7 @@ export function AuthProvider({ children }) {
 
   function signup(name, email, password) {
     if (name && email && password) {
-      setUser({ email, name })
+      setUser({ email, name, role: roleFor(email) })
       return true
     }
     return false
@@ -25,8 +29,12 @@ export function AuthProvider({ children }) {
     setUser(null)
   }
 
+  function hasRole(role) {
+    return user && user.role === role
+  }
+
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout }}>
+    <AuthContext.Provider value={{ user, login, signup, logout, hasRole }}>
       {children}
     </AuthContext.Provider>
   )

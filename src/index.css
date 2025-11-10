@@ -515,3 +515,8 @@ a.board-card {
   border: 1px solid #dcdfe4;
   border-radius: 8px;
 }
+
+.role-label {
+  color: #6b7280;
+  font-size: 0.85rem;
+}
