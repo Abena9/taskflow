@@ -520,3 +520,19 @@ a.board-card {
   color: #6b7280;
   font-size: 0.85rem;
 }
+
+.error-boundary {
+  padding: 40px;
+  text-align: center;
+}
+
+.error-boundary button {
+  margin-top: 12px;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #4c6ef5;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}

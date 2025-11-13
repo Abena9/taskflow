@@ -7,22 +7,25 @@ import { CommentProvider } from './context/CommentContext.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { TeamProvider } from './context/TeamContext.jsx'
 import { BoardProvider } from './context/BoardContext.jsx'
+import ErrorBoundary from './components/ErrorBoundary.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <BoardProvider>
-          <TeamProvider>
-            <TaskProvider>
-              <CommentProvider>
-                <App />
-              </CommentProvider>
-            </TaskProvider>
-          </TeamProvider>
-        </BoardProvider>
-      </AuthProvider>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <AuthProvider>
+          <BoardProvider>
+            <TeamProvider>
+              <TaskProvider>
+                <CommentProvider>
+                  <App />
+                </CommentProvider>
+              </TaskProvider>
+            </TeamProvider>
+          </BoardProvider>
+        </AuthProvider>
+      </BrowserRouter>
+    </ErrorBoundary>
   </React.StrictMode>
 )
