@@ -549,3 +549,41 @@ a.board-card {
   0% { background-position: 100% 50%; }
   100% { background-position: 0 50%; }
 }
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+body[data-theme='dark'] {
+  background: #14161f;
+  color: #e6e8ee;
+}
+
+body[data-theme='dark'] .topbar,
+body[data-theme='dark'] .board-card,
+body[data-theme='dark'] .team-card,
+body[data-theme='dark'] .task-card,
+body[data-theme='dark'] .auth-card,
+body[data-theme='dark'] .comment-item,
+body[data-theme='dark'] .notification-item {
+  background: #1d2030;
+  color: #e6e8ee;
+  border-color: #2c3048;
+}
+
+body[data-theme='dark'] .sidebar {
+  background: #0f1119;
+}
+
+body[data-theme='dark'] .board-column {
+  background: #21243a;
+}
