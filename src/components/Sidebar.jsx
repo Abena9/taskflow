@@ -8,7 +8,7 @@ const navItems = [
 
 function Sidebar() {
   return (
-    <aside className="sidebar">
+    <aside className="sidebar" aria-label="Main navigation">
       <div className="sidebar-brand">TaskFlow</div>
       <nav className="sidebar-nav">
         {navItems.map((item) => (
@@ -18,7 +18,7 @@ function Sidebar() {
             end={item.to === '/'}
             className={({ isActive }) => 'sidebar-item' + (isActive ? ' active' : '')}
           >
-            <span className="sidebar-icon">{item.icon}</span>
+            <span className="sidebar-icon" aria-hidden="true">{item.icon}</span>
             <span>{item.label}</span>
           </NavLink>
         ))}

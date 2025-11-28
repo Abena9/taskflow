@@ -1,12 +1,16 @@
 function SearchBar({ value, onChange, placeholder }) {
   return (
-    <input
-      type="text"
-      className="search-bar"
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      placeholder={placeholder || 'Search...'}
-    />
+    <label className="visually-hidden" htmlFor="board-search">
+      {placeholder || 'Search'}
+      <input
+        id="board-search"
+        type="text"
+        className="search-bar"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder || 'Search...'}
+      />
+    </label>
   )
 }
 
